@@ -1,7 +1,5 @@
 import React from 'react';
 import { estaLogado, getUsuarioAtual } from '../../utils/auth';
-import Logo from '../UI/Logo';
-import pata from '/paw.png'
 
 const Sidebar = ({ isOpen, onClose, onNavigateTo, onLogout, onToggleSidebar }) => {
   const usuario = getUsuarioAtual();
@@ -32,7 +30,7 @@ const Sidebar = ({ isOpen, onClose, onNavigateTo, onLogout, onToggleSidebar }) =
 
 
         <div className={`
-            fixed top-0 left-0 h-full w-80 bg-white shadow-2xl border-r border-orange-200
+            fixed top-0 left-0 h-full w-80 bg-white shadow-3xl drop-shadow-[1px_0px_8px_rgba(0,0,0,0.60)]
             flex flex-col z-[9998]
             transition-transform duration-300
             ${isOpen ? 'translate-x-0 pointer-events-auto' : '-translate-x-full pointer-events-none'}
@@ -54,7 +52,7 @@ const Sidebar = ({ isOpen, onClose, onNavigateTo, onLogout, onToggleSidebar }) =
           {estaLogado() ? (
             <>
 
-              <div className="p-6 bg-gradient-to-r from-orange-500 to-orange-600 text-white">
+              <div className="p-6 py-40 bg-primary-500 text-white">
                 <div className="flex items-center space-x-4">
                   <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-orange-500 text-lg font-bold shadow-lg">
                     {usuario.nome?.charAt(0) || 'U'}

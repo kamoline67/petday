@@ -38,11 +38,9 @@ const Login = ({ onLoginSuccess, onNavigateToRegister, onNavigateToHome, onLogou
 
     return (
         <div className="min-h-screen bg-neutral-50">
-            <Header onLogout={onLogout} onNavigateTo={onNavigateTo} />
             
             <div className="section-padding">
                 <div className="container-custom max-w-md mx-auto">
-                    {/* Botão Voltar */}
                     <button 
                         onClick={onNavigateToHome}
                         className="flex items-center space-x-3 text-secondary-600 hover:text-secondary-800 mb-8 transition-all duration-300 group"

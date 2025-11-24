@@ -8,14 +8,13 @@ export const removerUsuario = () => {
     localStorage.removeItem('user');
 };
 
-export const estaLogado = () => {
-    return !!localStorage.getItem('user');
-};
+export const estaLogado = () => true;
 
-export const getUsuarioAtual = () => {
-    const user = localStorage.getItem('user');
-    return user ? JSON.parse(user) : null;
-};
+export const getUsuarioAtual = () => ({
+    id: 999,
+    nome:"Usuário Teste",
+    email: "teste@teste.com"
+});
 
 export const getToken = () => {
     return localStorage.getItem('token');

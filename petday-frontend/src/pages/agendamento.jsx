@@ -183,11 +183,9 @@ const Agendamento = ({ usuario, onLogout, onNavigateTo, dados }) => {
 
     return (
         <div className="min-h-screen bg-neutral-50">
-            <Header onLogout={onLogout} onNavigateTo={onNavigateTo} />
             
             <div className="section-padding">
                 <div className="container-custom">
-                    {/* Header da Página */}
                     <div className="text-center mb-12">
                         <h1 className="text-display display-sm text-secondary-500 mb-4">
                             Meus <span className="text-primary-500">Agendamentos</span>

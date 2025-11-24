@@ -40,9 +40,9 @@ const Home = ({ onNavigateToLogin, onNavigateToFeed, onLogout, onNavigateTo }) =
               <Button 
                 size="xl"
                 onClick={onNavigateToFeed}
-                className="bg-white text-primary-500 hover:bg-neutral-100"
+                className="bg-white text-black hover:bg-neutral-100"
               >
-                Acessar Meu App <Logo variant='icon'/>
+                Acessar Feed <Logo variant='icon'/>
               </Button>
             )}
           </div>
@@ -101,7 +101,7 @@ const Home = ({ onNavigateToLogin, onNavigateToFeed, onLogout, onNavigateTo }) =
       <section className="section-padding bg-dark-800">
             <div className="container-custom">
               <div className="text-center mb-20">
-                <p className="text-3xl text-white max-w-3xl mx-auto">
+                <p className="text-3xl font-black text-white max-w-3xl mx-auto">
                   Equipe PetDay
                 </p><br></br>
                 <Logo variant='icon-white' size='xl' />
@@ -117,9 +117,9 @@ const Home = ({ onNavigateToLogin, onNavigateToFeed, onLogout, onNavigateTo }) =
                   },
                   {
                     nome: "Marco Antônio",
-                    cargo: "Gestor de equipe/Desenvolvedor",
+                    cargo: "Desenvolvedor",
                     foto: "/marco.png",
-                    descricao: "Gestão da equipe de desenvolvimento PetDay.",
+                    descricao: "Gestão de equipe e desenvolvimento PetDay.",
                   },
                   {
                     nome: "João Paulo Oto",

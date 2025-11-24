@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Importar Coolvetica com pesos mais suaves */
 @font-face {
   font-family: 'Coolvetica';
   src: url('/fonts/coolvetica.woff2') format('woff2'),

@@ -63,7 +63,6 @@ const Feed = ({ usuario, onLogout, onNavigateTo }) => {
         { id: 'todos', nome: 'Todos', icone: '🐾' },
         { id: 'banho', nome: 'Banho', icone: '🚿' },
         { id: 'tosa', nome: 'Tosa', icone: '✂️' },
-        { id: 'veterinario', nome: 'Veterinário', icone: '🏥' },
         { id: 'vacina', nome: 'Vacina', icone: '💉' }
     ];
 
@@ -78,18 +77,15 @@ const Feed = ({ usuario, onLogout, onNavigateTo }) => {
 
     return (
         <div className="min-h-screen bg-neutral-50">
-            <Header onLogout={onLogout} onNavigateTo={onNavigateTo} />
-            
             <div className="section-padding">
-                <div className="container-custom">
-                    {/* Hero Section */}
+                <div className="container-custom drop-shadow-[0px_4px_0px_rgba(0,0,0,0.60)]">
                     <Card className="gradient-bg text-white text-center mb-8">
-                        <div className="max-w-2xl mx-auto">
+                        <div className="max-w-2xl mx-auto font-bold">
                             <h1 className="text-display display-sm mb-4">
-                                Encontre o melhor para seu <span className="text-secondary-200">pet</span>
+                                <span className="font-black"> Encontre o melhor para seu pet</span>
                             </h1>
                             <p className="text-xl text-white/90 mb-6">
-                                Descubra petshops incríveis e serviços de qualidade perto de você
+                                Conheça os PetShops mais perto de você
                             </p>
                             
                             {/* Barra de Pesquisa */}
@@ -115,7 +111,6 @@ const Feed = ({ usuario, onLogout, onNavigateTo }) => {
                         </div>
                     )}
 
-                    {/* Filtros de Categoria */}
                     <div className="mb-8 overflow-x-auto">
                         <div className="flex space-x-3 pb-4">
                             {categorias.map(categoria => (
@@ -135,7 +130,6 @@ const Feed = ({ usuario, onLogout, onNavigateTo }) => {
                         </div>
                     </div>
 
-                    {/* Lista de Petshops */}
                     <div className="space-y-6">
                         {empresasFiltradas.length === 0 ? (
                             <Card padding="xl" className="text-center">
@@ -198,7 +192,7 @@ const Feed = ({ usuario, onLogout, onNavigateTo }) => {
                                                     variant="outline"
                                                     onClick={() => agendarDireto(empresa.servicos[0], empresa)}
                                                 >
-                                                    Agendar Direto
+                                                    Agendar
                                                 </Button>
                                             )}
                                         </div>

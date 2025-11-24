@@ -73,11 +73,8 @@ const PetshopDetalhes = ({ usuario, onLogout, onNavigateTo, dados }) => {
 
     return (
         <div className="min-h-screen bg-neutral-50">
-            <Header onLogout={onLogout} onNavigateTo={onNavigateTo} />
-            
             <div className="section-padding">
                 <div className="container-custom max-w-4xl">
-                    {/* Header do Petshop */}
                     <Card padding="xl" className="gradient-bg text-white mb-8">
                         <div className="flex flex-col md:flex-row items-start md:items-center justify-between">
                             <div className="flex items-center space-x-4 mb-4 md:mb-0">

@@ -74,7 +74,6 @@ const Cadastro = ({ onRegisterSuccess, onBackToLogin, onNavigateToHome, onLogout
 
     return (
         <div className="min-h-screen bg-neutral-50">
-            <Header onLogout={onLogout} onNavigateTo={onNavigateTo} />
             
             <div className="section-padding">
                 <div className="container-custom max-w-2xl">
