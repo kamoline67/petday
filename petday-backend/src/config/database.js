@@ -3,7 +3,7 @@ const { Sequelize } = require('sequelize');
 const conexao = new Sequelize(
   process.env.DB_NAME || 'petday',
   process.env.DB_USER || 'root',
-  process.env.DB_PASS || '1234',
+  process.env.DB_PASS || 'escola',
   {
     host: process.env.DB_HOST || 'db',
     port: process.env.DB_PORT || 3306,
