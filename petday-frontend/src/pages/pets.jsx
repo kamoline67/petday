@@ -115,7 +115,6 @@ const Pets = ({ usuario, onLogout, onNavigateTo }) => {
     if (carregandoPets) {
         return (
             <div className="min-h-screen bg-neutral-50">
-                <Header onLogout={onLogout} onNavigateTo={onNavigateTo} />
                 <Loading mensagem="Carregando seus pets..." tamanho="lg" />
             </div>
         );

@@ -15,7 +15,7 @@ const Home = ({ onNavigateToLogin, onNavigateToFeed, onLogout, onNavigateTo }) =
         <div className="absolute"></div>
         <div className="container-custom section-padding relative">
           <div className="text-center max-w-5xl mx-auto">
-            <p className="text-2xl md:text-3xl text-white/90 mb-12 leading-relaxed max-w-3xl mx-auto">
+            <p className="text-2xl font-semibold md:text-3xl text-white/90 mb-12 leading-relaxed max-w-3xl mx-auto">
               Agendamento online para banho, tosa, vacina e muito mais.
               <span className="block font"><br></br>Rápido, prático e seguro.</span>
             </p>

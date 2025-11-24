@@ -98,7 +98,6 @@ const Perfil = ({ usuario, onLogout, onNavigateTo, onUsuarioAtualizado }) => {
     if (carregandoDados) {
         return (
             <div className="min-h-screen bg-neutral-50">
-                <Header onLogout={onLogout} onNavigateTo={onNavigateTo} />
                 <Loading mensagem="Carregando perfil..." tamanho="lg" />
             </div>
         );

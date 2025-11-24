@@ -54,7 +54,7 @@ const Sidebar = ({ isOpen, onClose, onNavigateTo, onLogout, onToggleSidebar }) =
 
               <div className="p-6 py-40 bg-primary-500 text-white">
                 <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-orange-500 text-lg font-bold shadow-lg">
+                  <div className="w-12 h-12 bg-white rounded-3xl flex items-center justify-center text-orange-500 text-lg font-bold shadow-lg">
                     {usuario.nome?.charAt(0) || 'U'}
                   </div>
                   <div className="flex-1 min-w-0">

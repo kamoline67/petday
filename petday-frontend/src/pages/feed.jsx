@@ -69,7 +69,6 @@ const Feed = ({ usuario, onLogout, onNavigateTo }) => {
     if (carregando) {
         return (
             <div className="min-h-screen bg-neutral-50">
-                <Header onLogout={onLogout} onNavigateTo={onNavigateTo} />
                 <Loading mensagem="Carregando petshops..." tamanho="lg" />
             </div>
         );

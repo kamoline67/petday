@@ -175,7 +175,6 @@ const Agendamento = ({ usuario, onLogout, onNavigateTo, dados }) => {
     if (carregandoDados) {
         return (
             <div className="min-h-screen bg-neutral-50">
-                <Header onLogout={onLogout} onNavigateTo={onNavigateTo} />
                 <Loading mensagem="Carregando dados..." tamanho="lg" />
             </div>
         );
