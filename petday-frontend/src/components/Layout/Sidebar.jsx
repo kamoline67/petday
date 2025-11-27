@@ -5,7 +5,7 @@ const Sidebar = ({ isOpen, onClose, onNavigateTo, onLogout, onToggleSidebar }) =
   const usuario = getUsuarioAtual();
 
   const menuItems = [
-    { id: 'feed', label: 'Início', icon: '🏠', color: 'text-orange-500' },
+    { id: 'feed', label: 'Petshops', icon: '🏠', color: 'text-orange-500' },
     { id: 'pets', label: 'Meus Pets', icon: '🐕', color: 'text-orange-500' },
     { id: 'agendamento', label: 'Agendamentos', icon: '📅', color: 'text-orange-500' },
     { id: 'pagamento', label: 'Pagamentos', icon: '💳', color: 'text-orange-500' },
@@ -130,13 +130,14 @@ const Sidebar = ({ isOpen, onClose, onNavigateTo, onLogout, onToggleSidebar }) =
               </button>
             </div>
           )}
-        </div>
 
 
-        <div className="p-4 border-t border-orange-100 bg-orange-50">
-          <div className="text-center text-orange-600 text-sm">
-            <p className="font-display font-semibold">PetDay v1.0</p>
-            <p className="text-orange-400 text-xs mt-1">Praticidade em primeiro lugar.</p>
+
+          <div className="p-4 border-t border-orange-100 bg-orange-500">
+            <div className="text-center text-white text-sm">
+              <p className="font-display font-semibold">PetDay v1.0</p>
+              <p className="text-xs mt-1">Praticidade em primeiro lugar.</p>
+            </div>
           </div>
         </div>
       </div>

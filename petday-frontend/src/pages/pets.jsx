@@ -125,9 +125,8 @@ const Pets = ({ usuario, onLogout, onNavigateTo }) => {
             
             <div className="section-padding">
                 <div className="container-custom">
-                    {/* Header da Página */}
                     <div className="text-center mb-12">
-                        <h1 className="text-display display-sm text-secondary-500 mb-4">
+                        <h1 className="text-display text-lg text-secondary-500 mb-4">
                             Meus <span className="text-primary-500">Pets</span>
                         </h1>
                         <p className="text-xl text-neutral-600 max-w-2xl mx-auto">
@@ -145,7 +144,6 @@ const Pets = ({ usuario, onLogout, onNavigateTo }) => {
                         </div>
                     )}
 
-                    {/* Card de Ação Rápida */}
                     <Card padding="xl" className="gradient-bg text-white mb-8">
                         <div className="flex flex-col md:flex-row justify-between items-center">
                             <div>

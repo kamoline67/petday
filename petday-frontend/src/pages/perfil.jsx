@@ -108,7 +108,6 @@ const Perfil = ({ usuario, onLogout, onNavigateTo, onUsuarioAtualizado }) => {
             
             <div className="section-padding">
                 <div className="container-custom max-w-4xl">
-                    {/* Header do Perfil */}
                     <div className="text-center mb-12">
                         <div className="w-24 h-24 bg-gradient-to-r from-primary-500 to-primary-600 rounded-3xl flex items-center justify-center text-3xl text-white mx-auto mb-4 shadow-2xl">
                             👤
