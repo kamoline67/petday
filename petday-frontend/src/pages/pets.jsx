@@ -125,8 +125,9 @@ const Pets = ({ usuario, onLogout, onNavigateTo }) => {
             
             <div className="section-padding">
                 <div className="container-custom">
+
                     <div className="text-center mb-12">
-                        <h1 className="text-display text-lg text-secondary-500 mb-4">
+                        <h1 className="text-display display-sm text-secondary-500 mb-4">
                             Meus <span className="text-primary-500">Pets</span>
                         </h1>
                         <p className="text-xl text-neutral-600 max-w-2xl mx-auto">
@@ -163,7 +164,6 @@ const Pets = ({ usuario, onLogout, onNavigateTo }) => {
                         </div>
                     </Card>
 
-                    {/* Lista de Pets */}
                     <div>
                         {pets.length === 0 ? (
                             <Card padding="xl" className="text-center">
@@ -197,7 +197,6 @@ const Pets = ({ usuario, onLogout, onNavigateTo }) => {
                 </div>
             </div>
 
-            {/* Modal de Adicionar/Editar Pet */}
             <Modal
                 isOpen={modalAberto}
                 onClose={fecharModal}

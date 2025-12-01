@@ -1,5 +1,5 @@
 const { Op } = require('sequelize');
-const { agendamento, agendamento_servico, porte_servico, cliente, pet, porte, servico, empresa, endereco } = require('../models');
+const { agendamento, agendamento_servico, porte_servico, cliente, pet, porte, servico, empresa, endereco, pagamento } = require('../models');
 const { validarConflitoAgendamento } = require('../middleware/validarConflito');
 
 const agendamentoController = {
@@ -9,7 +9,7 @@ const agendamentoController = {
             const { empresa_id } = req.params;
             
             const agendamentoData = req.body;
-            const { cliente_id, pet_id, data_hora, endereco_atendimento, transporte, servicos} = agendamentoData;
+            const { cliente_id, pet_id, data_hora, endereco_atendimento, transporte, servicos, forma_pagamento} = agendamentoData;
 
             const clienteExistente = req.clienteExistente;
 
@@ -18,7 +18,6 @@ const agendamentoController = {
             if (!servicos || !Array.isArray(servicos) || servicos.length === 0) {
                 return res.status(400).json({ error: 'Lista serviços é obrigatória.' });
             }
-
             
 
             let enderecoAtendimento = null;
@@ -29,7 +28,7 @@ const agendamentoController = {
                 if (!enderecoCliente) {
                     return res.status(400).json({ error: 'Cliente não possui endereço cadastrado. Cadastre um endereço antes de agendar com transporte.' });
                 }
-                enderecoAtendimento = this.formatarEndereco(enderecoCliente);
+                enderecoAtendimento = agendamentoController.formatarEndereco(enderecoCliente);
             
             } else {
                 const enderecoEmpresa = await endereco.findOne({ where: {tipo_entidade: 'empresa', entidade_id: empresa_id} });
@@ -101,11 +100,20 @@ const agendamentoController = {
                 subtotalTotal += parseFloat(precoServico.preco_porte);
             }
 
+            const novoPagamento = await pagamento.create({
+                agendamento_id: novoAgendamento.agendamento_id,
+                cliente_id: cliente_id,
+                forma_pagamento: forma_pagamento || 'Pix',
+                valor: subtotalTotal,
+                status: forma_pagament === 'Dinheiro' ? 'Pendente' : 'Pago'
+            });
+
             const agendamentoCompleto = await agendamento.findByPk(novoAgendamento.agendamento_id, {
                 include: [
                     { model: cliente, attributes: ['nome', 'telefone'] },
                     { model: pet, attributes: ['nome', 'especie'] },
-                    { model: servico, as: 'servicos', through: {attributes: ['preco_unitario', 'subtotal', 'observacao'] }}
+                    { model: servico, as: 'servicos', through: {attributes: ['preco_unitario', 'subtotal', 'observacao']}},
+                    { model: pagamento }
                 ]
             });
 
@@ -157,9 +165,10 @@ const agendamentoController = {
                 include: [
                     {model: cliente, attributes: ['nome', 'telefone']},
                     {model: pet, attributes: ['nome', 'especie']},
-                    {model: servico, as: 'servicos', through: { attributes: ['preco_unitario']}}
+                    {model: servico, as: 'servicos', through: { attributes: ['preco_unitario']}},
+                    {model: pagamento}
                 ],
-                order: [['data_hora', 'ASC']]
+                order: [['data_hora', 'DESC']]
             });
             
             return res.status(200).json({ message: 'Agendementos encontrados com sucesso.', quantidade: agendamentos.length, agendamentos: agendamentos });

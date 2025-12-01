@@ -13,7 +13,6 @@ import Feed from './pages/feed';
 import Pets from './pages/pets';
 import Agendamento from './pages/agendamento';
 import Perfil from './pages/perfil';
-import Pagamento from './pages/pagamento';
 import PetshopDetalhes from './pages/petshop-detalhes';
 import pata from '/paw.png';
 import Logo from './components/UI/Logo';
@@ -131,11 +130,6 @@ function App() {
                 return <Agendamento 
                     {...propsComuns}
                     dados={dadosNavegacao}
-                />;
-                
-            case 'pagamento':
-                return <Pagamento 
-                    {...propsComuns}
                 />;
                 
             case 'perfil':
