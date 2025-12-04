@@ -1,8 +1,17 @@
 import axios from 'axios';
 
+const baseURL = import.meta.env.PROD 
+    ? import.meta.env.VITE_API_URL 
+    : '/api';
+
 const api = axios.create({
-    baseURL: import.meta.env.VITE_API_URL || 'http://localhost:3000/api',
+    baseURL: baseURL,
     timeout: 10000,
+    withCredentials: true,
+    headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+    }
 });
 
 api.interceptors.request.use((config) => {

@@ -16,6 +16,8 @@ import Perfil from './pages/perfil';
 import PetshopDetalhes from './pages/petshop-detalhes';
 import pata from '/paw.png';
 import Logo from './components/UI/Logo';
+import { AppProvider } from './utils/AppContext.jsx';
+import NotificationSystem from './components/Notification/NotificationSystem.jsx';
 
 function App() {
     const [usuario, setUsuario] = useState(null);
@@ -166,49 +168,52 @@ function App() {
     }
 
     return (
-        <div className="App min-h-screen bg-neutral-50 flex">
-                <Sidebar 
-                    isOpen={sidebarOpen}
-                    onClose={closeSidebar}
-                    onNavigateTo={navegarPara}
-                    onLogout={handleLogout}
-                    onToggleSidebar={toggleSidebar}
-                />
-            
-            <button
-                onClick={toggleSidebar}
-                className="fixed top-6 left-6 z-[9999] transition-all duration-300 hover:scale-110 active:scale-95 pointer-events-auto"
-            >
-                <img
-                src={pata}
-                alt="Abrir menu"
-                className={`w-128 h-32 drop-shadow-2xl transition-all duration-500
-                    ${sidebarOpen ? "-translate-x-10" : "-translate-x-48"}`}
-                />
-            </button>
+        <AppProvider>
+                <div className="App min-h-screen bg-neutral-50 flex">
+                        <Sidebar 
+                            isOpen={sidebarOpen}
+                            onClose={closeSidebar}
+                            onNavigateTo={navegarPara}
+                            onLogout={handleLogout}
+                            onToggleSidebar={toggleSidebar}
+                        />
+                    
+                    <button
+                        onClick={toggleSidebar}
+                        className="fixed top-6 left-6 z-[9999] transition-all duration-300 hover:scale-110 active:scale-95 pointer-events-auto"
+                    >
+                        <img
+                        src={pata}
+                        alt="Abrir menu"
+                        className={`w-128 h-32 drop-shadow-2xl transition-all duration-500
+                            ${sidebarOpen ? "-translate-x-10" : "-translate-x-48"}`}
+                        />
+                    </button>   
 
-            <SimpleBar 
-                className="flex-1 custom-scrollbar"
-                style={{ 
-                    height: '100vh',
-                    position: 'relative'
-                }}
-                autoHide={false}
-            >
-                <div className="flex top-0 z-1000 bg-white">
-                    <Header 
-                        sidebarOpen={sidebarOpen}
-                        onToggleSidebar={toggleSidebar}
-                        onLogout={handleLogout}
-                        onNavigateTo={navegarPara}
-                    />
-                </div>
-                
-                <main className="bg-white min-h-full">
-                    {renderizarPagina()}
-                </main>
-            </SimpleBar>
-        </div>
+                    <SimpleBar 
+                        className="flex-1 custom-scrollbar"
+                        style={{ 
+                            height: '100vh',
+                            position: 'relative'
+                        }}
+                        autoHide={false}
+                    >
+                        <div className="flex top-0 z-1000 bg-white">
+                            <Header 
+                                sidebarOpen={sidebarOpen}
+                                onToggleSidebar={toggleSidebar}
+                                onLogout={handleLogout}
+                                onNavigateTo={navegarPara}
+                            />
+                        </div>
+                        
+                        <main className="bg-white min-h-full">
+                            {renderizarPagina()}
+                        </main>
+                    </SimpleBar>
+                <NotificationSystem/>
+            </div>
+        </AppProvider>
     );
 }
 

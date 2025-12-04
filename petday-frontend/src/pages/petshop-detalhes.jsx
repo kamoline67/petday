@@ -90,7 +90,7 @@ const PetshopDetalhes = ({ usuario, onLogout, onNavigateTo, dados }) => {
                                 </div>
                             </div>
                             <div className="text-center md:text-right">
-                                <div className="text-2xl font-bold mb-1">
+                                <div className="text-2xl mb-1">
                                     {servicos.length} serviços
                                 </div>
                                 <div className="text-white/80">

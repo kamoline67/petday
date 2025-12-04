@@ -35,8 +35,12 @@ const Feed = ({ usuario, onLogout, onNavigateTo }) => {
         }
     };
 
-    const verDetalhesPetshop = (empresa) => {
-        onNavigateTo('petshop-detail', { empresa });
+    const verDetalhesPetshop = (empresa, e) => {
+    if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+    }
+    onNavigateTo('petshop-detalhes', { empresa });
     };
 
     const agendarDireto = (servico, empresa) => {
@@ -182,7 +186,7 @@ const Feed = ({ usuario, onLogout, onNavigateTo }) => {
                                         
                                         <div className="flex flex-col space-y-3">
                                             <Button 
-                                                onClick={() => verDetalhesPetshop(empresa)}
+                                                onClick={(e) => verDetalhesPetshop(empresa, e)}
                                             >
                                                 Ver Detalhes
                                             </Button>

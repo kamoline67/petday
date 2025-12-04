@@ -46,7 +46,7 @@ const Login = ({ onLoginSuccess, onNavigateToRegister, onNavigateToHome, onLogou
                         className="flex items-center space-x-3 text-secondary-600 hover:text-secondary-800 mb-8 transition-all duration-300 group"
                     >
                         <span className="text-2xl group-hover:-translate-x-1 transition-transform duration-300">←</span>
-                        <span className="text-lg font-semibold">Voltar para página inicial</span>
+                        <span className="text-lg">Voltar para página inicial</span>
                     </button>
 
                     {/* Card de Login */}

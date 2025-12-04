@@ -3,6 +3,7 @@ export default {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
+    "./src/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
@@ -13,13 +14,12 @@ export default {
           200: '#FFCC99',
           300: '#FFB266',
           400: '#FF9833',
-          500: '#FF7C1F', // laranja principal (igual sua onda)
+          500: '#FF7C1F',
           600: '#E66F1B',
           700: '#CC6218',
           800: '#B35514',
           900: '#8C4210',
         },
-
         dark: {
           50:  '#F5F5F5',
           100: '#E1E1E1',
@@ -30,9 +30,8 @@ export default {
           600: '#555555',
           700: '#2E2E2E',
           800: '#1A1A1A',
-          900: '#0D0D0D', // preto ideal para fundo
+          900: '#0D0D0D',
         },
-
         light: {
           50:  '#FFFFFF',
           100: '#FAFAFA',
@@ -47,8 +46,8 @@ export default {
         }
       },
       fontFamily: {
-        sans: ['Montserrat', 'system-ui', 'sans-serif'],
-        display: ['Raleway', 'system-ui', 'sans-serif'],
+        sans: ['Coolvetica', 'Inter', 'sans-serif'],
+        display: ['Coolvetica', 'Inter', 'sans-serif'],
       },
       borderRadius: {
         'xl': '12px',

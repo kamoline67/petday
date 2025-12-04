@@ -1,4 +1,3 @@
-
 class CacheService {
     constructor() {
         this.cache = new Map();
@@ -24,42 +23,13 @@ class CacheService {
         return item.data;
     }
 
+    delete(key) {
+        this.cache.delete(key);
+    }
+
     clear() {
         this.cache.clear();
     }
 }
 
 export const cacheService = new CacheService();
-
-
-export const useCachedApi = (url, deps = []) => {
-    const [data, setData] = useState(null);
-    const [carregando, setCarregando] = useState(true);
-    const [erro, setErro] = useState(null);
-
-    useEffect(() => {
-        const cachedData = cacheService.get(url);
-        if (cachedData) {
-            setData(cachedData);
-            setCarregando(false);
-            return;
-        }
-
-        const fetchData = async () => {
-            try {
-                setCarregando(true);
-                const response = await api.get(url);
-                cacheService.set(url, response.data);
-                setData(response.data);
-            } catch (error) {
-                setErro(error.response?.data?.error || 'Erro ao carregar dados');
-            } finally {
-                setCarregando(false);
-            }
-        };
-
-        fetchData();
-    }, [url, ...deps]);
-
-    return { data, carregando, erro };
-};

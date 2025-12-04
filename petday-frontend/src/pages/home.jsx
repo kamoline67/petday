@@ -15,7 +15,7 @@ const Home = ({ onNavigateToLogin, onNavigateToFeed, onLogout, onNavigateTo }) =
         <div className="absolute"></div>
         <div className="container-custom section-padding relative">
           <div className="text-center max-w-5xl mx-auto">
-            <p className="text-2xl font-semibold md:text-3xl text-white/90 mb-12 leading-relaxed max-w-3xl mx-auto">
+            <p className="text-2xl font-regular md:text-3xl text-white/90 mb-12 leading-relaxed max-w-3xl mx-auto">
               Agendamento online para banho, tosa, vacina e muito mais.
               <span className="block font"><br></br>Rápido, prático e seguro.</span>
             </p>
@@ -42,14 +42,13 @@ const Home = ({ onNavigateToLogin, onNavigateToFeed, onLogout, onNavigateTo }) =
                 onClick={onNavigateToFeed}
                 className="bg-white text-black hover:bg-neutral-100"
               >
-                Acessar Feed <Logo variant='icon'/>
+                Acessar Petshops <Logo variant='icon'/>
               </Button>
             )}
           </div>
         </div>
       </section>
 
-      {/* Features Section */}
       <section className="section-padding bg-white">
         <div className="container-custom">
           <div className="text-center mb-20">
@@ -60,30 +59,39 @@ const Home = ({ onNavigateToLogin, onNavigateToFeed, onLogout, onNavigateTo }) =
               O que o seu pet precisa, com a praticidade que você merece
             </p>
             <p><br></br> A equipe PetDay busca trazer praticidade e agilidade para o cuidado com seu pet<br></br>através de um site intuitivo que, além de exibir os preços dos serviços dos petshops de sua região, você pode agendar diretamente, sem precisar ficar ligando.</p>
-            <p class="text-xl text-neutral-700"><br></br>Prático e rápido.</p>
+            <p className="text-xl text-neutral-700"><br></br>Prático e rápido.</p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-1 gap-10 drop-shadow-[0px_8px_1px_rgba(0,0,0,0.60)]">
+          <div className="grid grid-cols-1 lg:grid-cols-1 gap-10">
             {[
               {
-                icon: '🚿',
+                icon: '/gatorajado.png',
                 title: 'Praticidade',
                 description: 'As opções de cuidado pro seu pet em um só lugar, sem precisar ficar ligando',
               },
               {
-                icon: '⏰',
+                icon: '/doguinho.png',
                 title: 'Agendamento Inteligente',
                 description: 'Agende em poucos cliques, escolha o melhor horário e receba lembretes automáticos',
               },
               {
-                icon: '📍',
+                icon: '/gatobranco.png',
                 title: 'Petshops Verificados',
                 description: 'Estabelecimentos avaliados e certificados, garantindo a melhor experiência para seu pet',
               },
             ].map((feature, index) => (
               <Card key={index} hover padding="xl" className="text-center">
-                <div className="w-20 h-20 bg-primary-500 rounded-3xl flex items-center justify-center text-3xl text-white mb-6 mx-auto shadow-2xl">
-                  {feature.icon}
+                <div className="w-32 h-32 bg-primary-500 rounded-3xl flex items-center justify-center text-3xl text-white mb-6 mx-auto drop-shadow-[0px_8px_1px_rgba(0,0,0,0.60)]">
+                      {String(feature.icon).includes(".png") ? (
+                      <img 
+                        src={feature.icon} 
+                        alt={feature.title} 
+                        className="w-32 h-32 object-contain"
+                        style={{ imageRendering: "pixelated" }}
+                      />
+                    ) : (
+                      feature.icon
+                    )}
                 </div>
                 <h3 className="text-2xl font-bold text-secondary-500 mb-4">
                   {feature.title}

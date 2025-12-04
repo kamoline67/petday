@@ -5,8 +5,8 @@ const Sidebar = ({ isOpen, onClose, onNavigateTo, onLogout, onToggleSidebar }) =
   const usuario = getUsuarioAtual();
 
   const menuItems = [
-    { id: 'feed', label: 'Petshops', icon: '🏠', color: 'text-orange-500' },
-    { id: 'pets', label: 'Meus Pets', icon: '🐕', color: 'text-orange-500' },
+    { id: 'feed', label: 'Petshops', icon: '/gatosnoplural.png', color: 'text-orange-500' },
+    { id: 'pets', label: 'Meus Pets', icon: '/doguinho.png', color: 'text-orange-500' },
     { id: 'agendamento', label: 'Agendamentos', icon: '📅', color: 'text-orange-500' },
     { id: 'perfil', label: 'Meu Perfil', icon: '👤', color: 'text-orange-500' },
   ];
@@ -74,9 +74,19 @@ const Sidebar = ({ isOpen, onClose, onNavigateTo, onLogout, onToggleSidebar }) =
                     onClick={() => handleNavigation(item.id)}
                     className="w-full flex items-center space-x-4 p-4 text-gray-700 hover:text-orange-600 hover:bg-orange-50 rounded-2xl transition-all duration-200 group border-2 border-transparent hover:border-orange-200"
                   >
-                    <span className={`text-2xl ${item.color} group-hover:scale-110 transition-transform duration-200`}>
-                      {item.icon}
-                    </span>
+                    <div className="w-20 h-12 flex items-center justify-center">
+                      {typeof item.icon === "string" && item.icon.endsWith(".png") ? (
+                        <img
+                          src={item.icon}
+                          alt={item.label}
+                          className="w-20 h-20 object-contain [image-rendering:pixelated]"
+                        />
+                      ) : (
+                        <span className="text-2xl text-orange-500 group-hover:scale-110 transition-transform duration-200">
+                          {item.icon}
+                        </span>
+                      )}
+                    </div>
                     <span className="font-display font-semibold text-lg">
                       {item.label}
                     </span>

@@ -7,17 +7,24 @@ export default defineConfig({
     port: 3001,
     host: true,
     open: true,
-    cors: true,
     proxy: {
       '/api': {
         target: 'http://localhost:3000',
         changeOrigin: true,
-        secure: false
+        secure: false,
+        configure: (proxy, _options) => {
+          proxy.on('proxyReq', (proxyReq, req, _res) => {
+            console.log(`[PROXY]: ${req.method} ${req.url} -> ${proxyReq.path}`);
+          });
+        }
       }
     }
   },
   build: {
     outDir: 'dist',
     sourcemap: true
+  },
+  css: {
+    postcss: './postcss.config.js',
   }
 });
