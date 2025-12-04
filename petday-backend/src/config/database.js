@@ -1,11 +1,11 @@
 const { Sequelize } = require('sequelize');
 
 const conexao = new Sequelize(
-  process.env.DB_NAME || 'petday',
+  process.env.DB_NAME || 'dbpetday',
   process.env.DB_USER || 'root',
   process.env.DB_PASS || 'escola',
   {
-    host: process.env.DB_HOST || 'db',
+    host: process.env.DB_HOST || 'localhost',
     port: process.env.DB_PORT || 3306,
     dialect: 'mysql',
     logging: console.log,

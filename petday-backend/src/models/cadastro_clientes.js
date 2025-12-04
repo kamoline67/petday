@@ -23,10 +23,10 @@ const cliente = conexao.define('cliente', {
         unique: true
     },
     senha: {
-        type: DataTypes.STRING(),
+        type: DataTypes.STRING(255),
         allowNull: false,
         validate: {
-            len: [6, 20]
+            notEmpty: true
         }
     }
 }, {

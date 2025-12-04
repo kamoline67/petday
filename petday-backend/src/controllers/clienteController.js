@@ -37,10 +37,9 @@ const clienteController = {
         try{
             const { nome, telefone, email, senha } = req.body;
 
-                if (senha.length < 6) {
-                    return res.status(400).json({ error: 'Senha deve ter pelo menos 6 caracteres.'});
-                }
-        
+            if (!senha || senha.trim().length < 6) {
+            return res.status(400).json({ error: 'Senha deve ter pelo menos 6 caracteres.'});
+        }
             //Validar Email para ver se o formato e o domínio são válidos + proteger a senha
 
             const emailValido = await validarEmailcomDNS(email);
@@ -55,6 +54,12 @@ const clienteController = {
 
             const senhaHash = await bcrypt.hash(senha, 10);
 
+            console.log('DEBUG:', {
+            senhaOriginalLength: senha.length,
+            hashLength: senhaHash.length,
+            hash: senhaHash.substring(0, 20) + '...'
+            });
+            
             //Criação do novo cliente.
             const novoCliente = await cliente.create({ nome, telefone, email, senha: senhaHash });
 

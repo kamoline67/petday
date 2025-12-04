@@ -40,7 +40,7 @@ const authMiddleware = {
             next();
 
         } catch (error) {
-            next();
+            next(error);
         }
     },
 

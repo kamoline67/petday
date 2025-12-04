@@ -105,7 +105,7 @@ const agendamentoController = {
                 cliente_id: cliente_id,
                 forma_pagamento: forma_pagamento || 'Pix',
                 valor: subtotalTotal,
-                status: forma_pagament === 'Dinheiro' ? 'Pendente' : 'Pago'
+                status: forma_pagamento === 'Dinheiro' ? 'Pendente' : 'Pago'
             });
 
             const agendamentoCompleto = await agendamento.findByPk(novoAgendamento.agendamento_id, {
